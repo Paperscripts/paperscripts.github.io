@@ -8,24 +8,10 @@ try {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    function Program(run, libraries, libFolder) {
+    function Program(run) {
         // A Program is an object with a runnable function that is called when you type program.run().
         // It also has a built-in debugger for bug fixing.
-        // Pass it libraries to load some libraries.
-        // Pass it libFolder to specify where to load the libraries from.
         this._run = run;
-
-        // Library loading.
-        /*var lf = ".";
-        if (libFolder) {
-            lf = libFolder;
-        }
-        if (libraries) {
-            for (var lib = 0; lib < libraries.length; lib++) {
-                this._include(libraries[lib], libFolder);
-            }
-        }
-        console.log(libraries);*/
 
         return this;
     }
