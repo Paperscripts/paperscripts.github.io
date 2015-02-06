@@ -3,11 +3,12 @@ var program = new Program(function() {
     console.log("Startup.");
     this.include("page-handle", "../paperscript-libs")
 
-    // Create a new page handler.
-    console.log("Wha");
-    var pageHanlder = new PageHandler();
-    console.log(pageHanlder);
-    var targeter = pageHanlder.getElementTargeter({id: "demo"});
-    console.log(targeter);
-    console.log("Success.");
+    setTimeout(function() {
+        // Create a new page handler.
+        var pageHanlder = new PageHandler();
+        console.log(pageHanlder);
+        var targeter = pageHanlder.getElementTargeter({id: "demo"});
+        console.log(targeter);
+        console.log("Success.");
+    }, 2000);
 });
