@@ -8,10 +8,6 @@ try {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     function Program(run, libraries, libFolder) {
         // A Program is an object with a runnable function that is called when you type program.run().
         // It also has a built-in debugger for bug fixing.
@@ -20,7 +16,7 @@ try {
         this._run = run;
 
         // Library loading.
-        var lf = ".";
+        /*var lf = ".";
         if (libFolder) {
             lf = libFolder;
         }
@@ -29,7 +25,7 @@ try {
                 this._include(libraries[lib], libFolder);
             }
         }
-        console.log(libraries);
+        console.log(libraries);*/
 
         return this;
     }
@@ -56,7 +52,7 @@ try {
         }
     }
 
-    Program.prototype._include = function(lib, libsFolder) {
+    Program.prototype.include = function(lib, libsFolder) {
         // Includes a Paperscript library file.
         // Gets it from the paperscript-libs/ folder.
         // Specify libsFolder to override paperscript-libs.
