@@ -5,11 +5,9 @@ var program = new Program(function() {
 
     // When we include a file, we need to wait for it to load before doing anything.
     // Best bet is to just wait two seconds.
-    setTimeout(function() {
-        var pageHanlder = new PageHandler();
-        console.log(pageHanlder);
-        var targeter = pageHanlder.getElementTargeter({id: "demo"});
-        console.log(targeter);
-        console.log("Success.");
-    }, 0);
+    var pageHanlder = new PageHandler();
+    console.log(pageHanlder);
+    var targeter = pageHanlder.getElementTargeter({id: "demo"});
+    console.log(targeter);
+    console.log("Success.");
 });
