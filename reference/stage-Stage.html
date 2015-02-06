@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stage() | Reference | Paperscripts</title>
+        <link rel="stylesheet" href="ref.css">
+        <script src="../paperscripts.js"></script>
+        <script src="./highlight.js"></script>
+        <script src="./stage-Stage-demo.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <br>
+            <h1 style="text-align: center;">REFERENCE</h1>
+        </div>
+        <div id="page">
+            <canvas width="300" height="300" id="demo" style="float: left; margin: 10px;">Your browser does not support canvas.</canvas>
+            <h3>Stage() class</h3>
+            <p>The <code>Stage()</code> is where you display all of your <a href="sprites-Sprite.html">sprites</a>. Think of it as what it's called - a stage, where you can stick your sprites (characters) on. It's easy to create a stage:</p>
+            <code>var stage = new Stage();</code>
+            <p>We're just saying that we want to create (<code>var</code>) a <code>new Stage()</code> called <code>stage</code>.</p>
+            <p>In this example we have the stage changing the background with it's <code>setBackground</code> function.</p>
+            <p>Source code:</p>
+            <code>
+var program = new Program(function() {<br>
+&nbsp;// Create the stage. We need to give it "demo" because that's the ID of our &lt;canvas&gt;.<br>
+&nbsp;var stage = new Stage("demo");<br>
+<br>
+&nbsp;// We want the background to change once per frame.<br>
+&nbsp;// First, though, we need to set a variable for the colors.<br>
+&nbsp;var red = 0;<br>
+&nbsp;var green = 255;<br>
+&nbsp;var blue = 125;<br>
+<br>
+&nbsp;// Next we need to set how much the colors will change each frame.<br>
+&nbsp;var redChange = 1;<br>
+&nbsp;var greenChange = -0.5;<br>
+&nbsp;var blueChange = 1;<br>
+<br>
+&nbsp;// Now we need to make the run loop.<br>
+&nbsp;// This happens every frame.<br>
+&nbsp;// Since we don't have any sprites it doesn't matter whether we use beforeSpritesLoop or afterSpritesLoop.<br>
+&nbsp;stage.makeBeforeSpritesLoop(function() {<br>
+&nbsp;&nbsp;// See how we put a function inside of stage's makeBeforeSpritesLoop?<br>
+&nbsp;&nbsp;// That means we want to do run this function once a turn.<br>
+&nbsp;&nbsp;// Here we're changing the color values by their respective change.<br>
+&nbsp;&nbsp;red = red + redChange;<br>
+&nbsp;&nbsp;green = green + greenChange;<br>
+&nbsp;&nbsp;blue = blue + blueChange;<br>
+<br>
+&nbsp;&nbsp;// Next, we need to figure out how to set the background.<br>
+&nbsp;&nbsp;// We'll use our stage's .setBackground function.<br>
+&nbsp;&nbsp;// But we have a problem - setBackground requires a hexadecimal string.<br>
+&nbsp;&nbsp;// If you don't know what that means, you don't need to worry about it.<br>
+&nbsp;&nbsp;// At some point you'll probably learn about it in math,<br>
+&nbsp;&nbsp;// but simply think of hexadecimal as a different way to write numbers.<br>
+<br>
+&nbsp;&nbsp;// Fortunately, the stage actually has a special category of functions:<br>
+&nbsp;&nbsp;// Math! What we want is math.toHexadecimal:<br>
+&nbsp;&nbsp;var redInHex = this.math.toHexadecimal(this.math.round(red));<br>
+&nbsp;&nbsp;var greenInHex = this.math.toHexadecimal(this.math.round(green));<br>
+&nbsp;&nbsp;var blueInHex = this.math.toHexadecimal(this.math.round(blue));<br>
+<br>
+&nbsp;&nbsp;// We also have to round it using math.round because if it gives us a<br>
+&nbsp;&nbsp;// decimal setBackground will not work.<br>
+<br>
+&nbsp;&nbsp;// Whoa, see how we used this there rather than stage?<br>
+&nbsp;&nbsp;// Since we're making a function inside of stage we don't need to worry<br>
+&nbsp;&nbsp;// about specifying what stage we want to have use the math function.<br>
+&nbsp;&nbsp;// Paperscripts automatically knows that we want to use stage, since we are<br>
+&nbsp;&nbsp;// making stage's before-sprites-loop function.<br>
+<br>
+&nbsp;&nbsp;// Now we need to make the actual hexadecimal string.<br>
+&nbsp;&nbsp;// Think of it as #REDGREENBLUE.<br>
+&nbsp;&nbsp;var colorInHex = "#" + redInHex + greenInHex + blueInHex;<br>
+<br>
+&nbsp;&nbsp;// Now we have to use the setBackground function:<br>
+&nbsp;&nbsp;this.setBackground(colorInHex);<br>
+<br>
+&nbsp;&nbsp;// Finally - the maximum value for one of our numbers is 255 and the minimum is 0.<br>
+&nbsp;&nbsp;// If it goes past those bounds let's make the color increase in the other direction!<br>
+&nbsp;&nbsp;// We'll be using a special tool called IF. If is just a special way to make the computer<br>
+&nbsp;&nbsp;// decide something. For example...<br>
+&nbsp;&nbsp;if (red &gt; 255) {<br>
+&nbsp;&nbsp;&nbsp;// ... it will do whatever's inside of these curly brackets.<br>
+&nbsp;&nbsp;&nbsp;redChange = redChange * -1;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;// For the other:<br>
+&nbsp;&nbsp;if (red &lt; 0) {<br>
+&nbsp;&nbsp;&nbsp;redChange = redChange * -1;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;// But it's actually possible to use a special thing called ||. || means OR.<br>
+&nbsp;&nbsp;// So, we could say that if green is greater than 255 or green is less than 0<br>
+&nbsp;&nbsp;// in english, or we could say (green &gt; 255 || green &lt; 0) in Paperscripts:<br>
+&nbsp;&nbsp;if (green &gt; 255 || green &lt; 0) {<br>
+&nbsp;&nbsp;&nbsp;greenChange *= -1;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;// Finally, we do blue. It's the same as green, but replacing green with blue.<br>
+&nbsp;&nbsp;if (blue &gt; 255 || blue &lt; 0) {<br>
+&nbsp;&nbsp;&nbsp;blueChange *= -1;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;});<br>
+<br>
+&nbsp;// Finally we need to start the stage - or, if you prefer, open the curtains.<br>
+&nbsp;// Just use the stage's .go function to do that.<br>
+&nbsp;stage.go();<br>
+});<br>
+            </code>
+            <script>program.run();highlight('code');</script>
+            <p></p>
+        </div>
+    </body>
+</html>

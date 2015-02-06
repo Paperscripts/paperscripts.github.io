@@ -1,0 +1,62 @@
+body {
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #27160b;
+}
+
+#header {
+    font-family: Verdana, Arial;
+    letter-spacing: 1.5px;
+    background-color: #43260f;
+    color: #CCCCCC;
+    height: 135px;
+    line-height: 30px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #111111;
+}
+
+#page {
+    background-color: #999999;
+    margin-left: 5%;
+    width: 90%;
+    padding: 5px;
+    font-family: Arial;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 5px 5px 10px #111111;
+}
+
+table, th, td {
+    border: thin solid black;
+    border-collapse: collapse;
+    padding: 8px;
+}
+
+dl {
+    list-style: none;
+}
+
+/* Highlighting */
+
+code {
+    color: rgb(0, 0, 0);
+    font-family: Monaco;
+    font-size: 11px;
+}
+
+.highlight-class {
+    font-style: italic;
+    color: rgb(50, 255, 50);
+}
+
+.highlight-class-function {
+    color: rgb(50, 50, 125);
+}
+
+.highlight-keyword {
+    color: rgb(255, 125, 0);
+}
+
+.highlight-var-title {
+    color: rgb(20, 20, 100);
+}

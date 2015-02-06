@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sprite() | Reference | Paperscripts</title>
+        <link rel="stylesheet" href="ref.css">
+        <script src="../paperscripts.js"></script>
+        <script src="./highlight.js"></script>
+        <script src="./sprites-Sprite-demo.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <br>
+            <h1 style="text-align: center;">REFERENCE</h1>
+        </div>
+        <div id="page">
+            <canvas width="300" height="300" id="demo" style="float: left; margin: 10px;">Your browser does not support canvas.</canvas>
+            <h3>Sprite() class</h3>
+            <p>A <code>Sprite()</code> is a character that you can put on a screen. Think of it as a person - it knows how to do things like move. It's also able to <code>.hide</code> and <code>.show</code>, if you don't want it appearing at the moment. The best thing about sprites are that you can have multiple ones in a stage.</p>
+            <p>To make a new Sprite, you'll need to use a fairly simple line of code:</p>
+            <code>var sprite1 = new Sprite();</code>
+            <p>This says that <code>sprite1</code> (a variable thing, you should always use <code>var</code> when making anything) is a <code>new Sprite()</code>. Finally we add the semi-colon (<code>;</code>) at the end to show that that's all we want to do at the moment.</p>
+            <p>Source code:</p>
+            <code>
+            var program = new Program(function() {<br>
+            &nbsp;// Create a simple sprite.<br>
+            &nbsp;var sprite1 = new Sprite();<br>
+<br>
+            &nbsp;// Set it to go 125 pixels RIGHT and 80 pixels DOWN from the top left corner when the program starts.<br>
+            &nbsp;sprite1.onStart(function() {<br>
+            &nbsp;&nbsp;this.goTo(125, 80);<br>
+            &nbsp;});<br>
+<br>
+            &nbsp;// Make the sprite do something once a frame.<br>
+            &nbsp;sprite1.makeRunLoop(function() {<br>
+            &nbsp;&nbsp;this.goTo(this._xpos + 5, this._ypos);<br>
+            &nbsp;&nbsp;if (this._xpos > 360) {<br>
+            &nbsp;&nbsp;&nbsp;this.goTo(-60, this._ypos);<br>
+            &nbsp;}<br>
+            });<br>
+<br>
+            &nbsp;// Now create a stage. The stage is where we display sprites and draw to.<br>
+            &nbsp;// Note that we need to pass it the ID of our &lt;canvas&gt; element.<br>
+            &nbsp;var stage = new Stage("demo");<br>
+<br>
+            &nbsp;// Next, we need to add sprite1 to the Stage we just created.<br>
+            &nbsp;stage.addSprite(sprite1);<br>
+<br>
+            &nbsp;// We can't forget to draw the sprite after moving it!<br>
+            &nbsp;// This also happens in the run loop:<br>
+            &nbsp;stage.makeAfterSpritesLoop(function() {<br>
+            &nbsp;&nbsp;this.setBackground("#555555");<br>
+            &nbsp;&nbsp;his.drawSprites();<br>
+            &nbsp;});<br>
+<br>
+            &nbsp;// Finally we call the program! Just use the .go function on our stage.<br>
+            &nbsp;stage.go();<br>
+            });</code>
+            <script>program.run();highlight('code');</script>
+            <p></p>
+        </div>
+    </body>
+</html>
