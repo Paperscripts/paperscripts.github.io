@@ -1,0 +1,9 @@
+#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    border-bottom: 3px solid #45ff0a;
+    background-color: #0b160e;
+}
