@@ -14,9 +14,7 @@ function make_nav() {
                 this.responseText != null &&
                 this.responseXML.getElementsByTagName("ul")[0].textContext) {
                 processData(
-                    this.responseXML
-                    .getElementById("candy")
-                    .textContext);
+                    this.responseXML.getElementById("candy").innerHTML);
             } else {
                 processData(null);
             }
