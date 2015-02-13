@@ -8,6 +8,7 @@ function make_nav() {
     }
 
     function handler() {
+        alert("Handling stuff.");
         if (this.readyState == this.DONE) {
             if (this.status == 200 &&
                 this.responseText != null &&
@@ -16,7 +17,11 @@ function make_nav() {
                     this.responseXML
                     .getElementsByTagName("ul")[0]
                     .textContext);
+            } else {
+                processData(null);
             }
+        } else {
+            processData(null);
         }
     }
 
