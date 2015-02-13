@@ -1,7 +1,7 @@
 /** Global script for paperscripts.github.io **/
 
 function make_nav() {
-    function processingData(data) {
+    function processData(data) {
         // Taking care of data.
         alert("Got data '" + data + "'.");
         document.getElementById("nav").innerHTML = data;
