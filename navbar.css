@@ -7,3 +7,22 @@
     border-bottom: 3px solid #45ff0a;
     background-color: #0b160e;
 }
+
+#nav ul {
+    list-style: none;
+}
+
+#nav a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    bottom: 3px;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+#nav ul li {
+    float: left;
+    margin-right: 30px;
+    font-size: 14px;
+}

@@ -3,23 +3,21 @@
 function make_nav() {
     function processData(data) {
         // Taking care of data.
-        alert("Got data '" + data + "'.");
         document.getElementById("nav").innerHTML = data;
     }
 
     function handler() {
-        alert("Handling stuff.");
+        //alert("Handling stuff.");
         if (this.readyState == this.DONE) {
             if (this.status == 200 &&
                 this.responseText != null &&
-                this.responseXML.getElementsByTagName("ul")[0].textContext) {
-                processData(
-                    this.responseXML.getElementById("candy").innerHTML);
+                this.responseXML.getElementsByTagName("navbar")[0].innerHTML) {
+                processData(this.responseXML.getElementsByTagName("navbar")[0].innerHTML);
             } else {
-                processData(null);
+                processData("Failed reading");
             }
         } else {
-            processData(null);
+            processData("Failed loading");
         }
     }
 
