@@ -1,7 +1,9 @@
 <!-- Navigation bar to be included in each page. -->
-<ul>
-    <li><a href="index.html">Index</a></li>
-</ul>
-<p id="candy">
-    I should appear!!
-</p>
+<navbar>
+    <ul>
+        <li><a href="index.html">Index</a></li>
+    </ul>
+    <p id="candy">
+        I should appear!!
+    </p>
+</navbar>
