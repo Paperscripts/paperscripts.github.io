@@ -19,6 +19,11 @@ function make_nav() {
             }
         }
     }
+
+    var client = new XMLHttpRequest();
+    client.onreadystatechange = handler;
+    client.open("GET", "navbar.xml");
+    client.send();
 }
 
 function load() {
