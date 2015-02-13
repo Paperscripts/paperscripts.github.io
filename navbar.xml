@@ -2,3 +2,6 @@
 <ul>
     <li><a href="index.html">Index</a></li>
 </ul>
+<p id="candy">
+    I should appear!!
+</p>

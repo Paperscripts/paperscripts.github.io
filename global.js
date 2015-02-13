@@ -15,7 +15,7 @@ function make_nav() {
                 this.responseXML.getElementsByTagName("ul")[0].textContext) {
                 processData(
                     this.responseXML
-                    .getElementsByTagName("ul")[0]
+                    .getElementById("candy")
                     .textContext);
             } else {
                 processData(null);
